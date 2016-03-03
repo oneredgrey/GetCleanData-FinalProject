@@ -36,40 +36,40 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ### The dataset downloaded from the UCI website includes the following files:
 
-* ```'README.txt'```:
+* 'README.txt':
     + Information on the data provided by the original experimentors.
 
-* ```'features_info.txt'```: 
+* 'features_info.txt': 
     + Shows information about the variables used on the feature vector.
     
-* ```'features.txt'```: 
+* 'features.txt': 
     + List of all features.
     + This is the complete list of variable names for the 561 variables. 
     
-* ```'activity_labels.txt'```: 
+* 'activity_labels.txt': 
     + Links the class labels with their activity name.
     
-* ```'train/X_train.txt'```: 
+* 'train/X_train.txt': 
     + Training data set.
     + 7352 observations, 561 variables
     
-* ```'train/y_train.txt'```: 
+* 'train/y_train.txt': 
     + Training activity code labels.
     + 7352 observations on one variable
     
-* ```'train/subject_train.txt'```: 
+* 'train/subject_train.txt': 
     + Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
     + 7352 observations on one variable
 
-* ```'test/X_test.txt'```: 
+* 'test/X_test.txt': 
     + Test data set.
     + 2947 observations, 561 variables
     
-* ```'test/y_test.txt'```: 
+* 'test/y_test.txt': 
     + Test activity code labels.
     + 2947 observations on one variable
     
-* ```'test/subject_test.txt'```: 
+* 'test/subject_test.txt': 
     + Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
     + 2947 observations on one variable    
 
@@ -83,7 +83,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ## Pre-processing steps and approach to merging the data
 
-The script for processing the data are found in the R file ```'run_analysis.R'```.  
+The script for processing the data are found in the R file `'run_analysis.R'`.  
 
 Described here are steps to create the final independent tidy data set with the average of each variable for each activity and each subject.  
 
@@ -91,9 +91,9 @@ Described here are steps to create the final independent tidy data set with the 
 
 Working first on the test data, create one dataset as follows:
 
-* label the test data (```'X_test.txt'```) with meaningful variable names (from ```'features.txt'```)
-* add the appropriate subject identifiers (from ```'subject_test.txt'```)
-* add the numeric activity codes (from ```'y_test.txt'```)
+* label the test data (`'X_test.txt'`) with meaningful variable names (from `'features.txt'`)
+* add the appropriate subject identifiers (from `'subject_test.txt'`)
+* add the numeric activity codes (from `'y_test.txt'`)
 
 This is accomplished using the `cbind` function.  The new dataset will follow this format:
 
@@ -102,7 +102,7 @@ Column 1  | Column 2  | Columns 3 - 563
 subject   | activity  | "Features" variables 
 
 
-This process is repeated for the test data using data from 'X_train.txt', 'subject_train.txt', and 'y_train.txt'.  
+This process is repeated for the test data using data from `'X_train.txt'`, `'subject_train.txt'`, and `'y_train.txt'`.  
 
 
 ### Step 2:  Merge TEST and TRAIN Datasets into one dataset
@@ -112,7 +112,7 @@ Merge the training and test datasets created in Step 1, into one dataset using t
 
 ### Step 3: Replace numeric activity codes with text labels 
 
-Replace the numeric activity codes with their corresponding descriptive text labels (found in 'activity_labels.txt').  For example, "1" is replaced with "WALKING". The activity codes and matching text labels are as follows:
+Replace the numeric activity codes with their corresponding descriptive text labels (found in `'activity_labels.txt'`).  For example, "1" is replaced with "WALKING". The activity codes and matching text labels are as follows:
   * 1:  WALKING
   * 2:  WALKING_UPSTAIRS
   * 3:  WALKING_DOWNSTAIRS
@@ -130,12 +130,12 @@ NOTE:  Only "mean" and "std" variables were selected.  "meanFreq" variables were
 
 ### Step 5:  Create a separate, independent tidy dataset with the average of each variable for each activity and each subject.  
 
-This is accomplished with the dplyr package, using the "group_by" and "summarize" functions.
+This is accomplished with the `dplyr` package, using the `group_by` and `summarize` functions.
 
-The resulting tidy dataset is stored in the file "tidydata.txt".  It is a data.frame of 180 obs. of  68 variables.
+The resulting tidy dataset is stored in the file `'tidydata.txt'`.  This is a data.frame of 180 obs. of  68 variables.
 
 
-## Variables in the Tidy Dataset "tidydata.txt"
+## Variables in the Tidy Dataset 'tidydata.txt'
 
 * 1)  subject  - Factor w/ 30 levels ("1", "2", ..., "30").  Identifies the subject performing the task(s)
     
