@@ -1,11 +1,10 @@
 ---
 title: "Code Book"
-author: "Sue Evans"
+author: "Sue Gilbert Evans"
 date: "March 1, 2016"
 output: html_document
 ---
 
-# Code Book
 ### Getting and Cleaning Data - Coursera Data Science Specialization: Course Project
 
 ## Objective of this project:
@@ -120,7 +119,7 @@ Replace the numeric activity codes with their corresponding descriptive text lab
 
 ### Step 4:  Extract only the mean() and std() vars
 
-Search for the variables that measure either mean ("mean") or standard deviation ("std") for each measure, using `gsub` with regular expressions.  Extract this subset of variables to produce the dataset ready for Step 5.
+Search for the variables that measure either mean ("mean") or standard deviation ("std") for each measure, using `grep` with regular expressions.  Extract this subset of variables and tidy the variable names to produce the dataset ready for Step 5.
 
 NOTE:  Only "mean" and "std" variables were selected.  "meanFreq" variables were not considered to fit the desired specifications and were excluded.  
 
@@ -132,24 +131,31 @@ This is accomplished with the dplyr package, using the "group_by" and "summarize
 The resulting tidy dataset is stored in the file "tidydata.txt".  It is a data.frame of 180 obs. of  68 variables.
 
 
-## Variables in the Tidy Dataset
+## Variables in the Tidy Dataset "tidydata.txt"
 
-1.  subject  - Factor w/ 30 levels ("1", "2", ..., "30")
-    * Identifies the subject performing the task(s)
+1.  subject  - Factor w/ 30 levels ("1", "2", ..., "30").  Identifies the subject performing the task(s)
     
-2.  activity
-    Factor w/ 6 levels ("laying", "sitting", "standing", "walking",   "walkingdownstairs", "walkingupstairs")
-    * Labels the activities with meaningful text labels
+2.  activity -  Factor w/ 6 levels ("laying", "sitting", "standing", "walking",   "walkingdownstairs", "walkingupstairs").  Labels the activities with meaningful text labels
 
         
-Variables 3 through 68 represent the average of the mean and standard devation signals for the accelerometer and gyroscope measurements ("features").  
+**Notes on Variables 3 through 68:**  These variables represent the average of the mean (mean) and standard devation (std) signals for the accelerometer and gyroscope measurements ("features").  
 
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix **'t'** to denote time; variables 2 through 42) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
 
 Similarly, the acceleration signal was then separated into body and gravity 
 acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass 
-Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized and bounded within [-1,1]. The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).  The gyroscope units are radians/second.
+Butterworth filter with a corner frequency of 0.3 Hz.  
 
+Subsequently, the body linear acceleration and angular velocity were derived in time to 
+obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, 
+tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Fast Fourier Transform (FFT) was applied to some of these signals 
+producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, 
+fBodyGyroMag, fBodyGyroJerkMag. (Note the **'f'** to indicate frequency domain signals; variables 43 through 68).  As with the above time domain signals, these frequency domain signal measures represent the mean (mean) or standard deviation (std) in each axis (X, Y or Z). 
+
+Features are normalized and bounded within [-1,1]. 
+The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/sec^2^).  The gyroscope units are radians/second.
 
 3.  tbodyaccmeanx - (numeric)
 4.  tbodyaccmeany - (numeric) 
@@ -157,8 +163,6 @@ Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized a
 6.  tbodyaccstdx - (numeric)
 7.  tbodyaccstdy - (numeric)
 8.  tbodyaccstdz - (numeric) 
-* Time domain signals: average of the mean (mean) or standard deviation (std) body acceleration signal (unit of measure - g) on each axis (X, Y, Z) for each subject and each activity. 
-
 
 9.  tgravityaccmeanx - (numeric)    
 10. tgravityaccmeany - (numeric)
@@ -166,8 +170,6 @@ Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized a
 12. tgravityaccstdx - (numeric)  
 13. tgravityaccstdy - (numeric)  
 14. tgravityaccstdz - (numeric)  
-* Time domain signals: average of the mean (mean) or standard deviation (std) gravity acceleration signal (unit of measure - g) on each axis (X, Y, Z) for each subject and each activity. 
-
 
 15. tbodyaccjerkmeanx - (numeric)      
 16. tbodyaccjerkmeany - (numeric)  
@@ -175,9 +177,6 @@ Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized a
 18. tbodyaccjerkstdx - (numeric)   
 19. tbodyaccjerkstdy - (numeric)  
 20. tbodyaccjerkstdz - (numeric)  
-* Time domain signals: average of the mean (mean) or standard deviation (std) body linear acceleration jerk signal on each axis (X, Y, Z) for each subject and each activity.
-
-
 
 21. tbodygyromeanx - (numeric)  
 22. tbodygyromeany - (numeric)  
@@ -185,9 +184,6 @@ Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized a
 24. tbodygyrostdx  - (numeric)   
 25. tbodygyrostdy - (numeric)  
 26. tbodygyrostdz - (numeric)  
-* Time domain signals: average of the mean (meand) or standard deviation (std) body angular velocity signal (unit of measure - rad/sec) on each axis (X, Y, Z) for each subject and each activity.
-
-
 
 27. tbodygyrojerkmeanx - (numeric)  
 28. tbodygyrojerkmeany - (numeric)  
@@ -195,8 +191,6 @@ Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized a
 30. tbodygyrojerkstdx - (numeric)  
 31. tbodygyrojerkstdy - (numeric)  
 32. tbodygyrojerkstdz - (numeric)  
-* Time domain signals: average of the mean (mean) or standard deviation (std) body angular velocity jerk signal on each axis (X, Y, Z) for each subject and each activity.
-
 
 33. tbodyaccmagmean - (numeric)  
 34. tbodyaccmagstd - (numeric)  
@@ -212,12 +206,6 @@ Butterworth filter with a corner frequency of 0.3 Hz.  Features are normalized a
 
 41. tbodygyrojerkmagmean - (numeric)  
 42. tbodygyrojerkmagstd - (numeric)  
-* average of the mean (mean) or standard deviation (std) magnitude of three-dimensional signals (calculated using the Euclidean norm) for each subject and each activity.
-  
-  
-Fast Fourier Transform (FFT) was applied to some of these signals 
-producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, 
-fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals).  As with the above time domain signals, these frequency domain signal measures represent the mean (mean) or standard deviation (std) in each axis (X, Y or Z) 
 
 43. fbodyaccmeanx - (numeric)  
 44. fbodyaccmeany - (numeric)  
@@ -253,7 +241,15 @@ fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signa
 68. fbodybodygyrojerkmagstd - (numeric)  
 
 
+## License:
 
+Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
 
 
 
