@@ -132,10 +132,13 @@ NOTE:  Only "mean" and "std" variables were selected.  "meanFreq" variables were
 
 This is accomplished with the `dplyr` package, using the `group_by` and `summarize` functions.
 
-The resulting tidy dataset is stored in the file `'tidydata.txt'`.  This is a data.frame of 180 obs. of  68 variables.
 
 
-## Variables in the Tidy Dataset 'tidydata.txt'
+## Description of the Tidy Dataset 'tidydata.txt'
+
+The final dataset is stored in the file `'tidydata.txt'`.  This is a `data.frame` of 180 observations and 68 variables.  Each observation represents a measurement on one subject and one activity.
+
+Here is a description of the variables:
 
 * 1)  subject  - Factor w/ 30 levels ("1", "2", ..., "30").  Identifies the subject performing the task(s)
     

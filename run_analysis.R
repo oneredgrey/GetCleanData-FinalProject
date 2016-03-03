@@ -1,6 +1,8 @@
 ## Filename is run_analysis.R
 ## Assignment: Getting and Cleaning Data Course Project
-
+## Please refer to the Code Book and ReadMe files for further details on 
+## this script.
+## _________________________________________________________________________________
 
 ## In preparation, load the necessary packages/libraries (if not already loaded).
 install.packages("dplyr")
