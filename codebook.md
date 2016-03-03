@@ -4,7 +4,7 @@ author: "Sue Gilbert Evans"
 date: "March 1, 2016"
 output: html_document
 ---
-
+# Code Book
 ### Getting and Cleaning Data - Coursera Data Science Specialization: Course Project
 
 ## Objective of this project:
