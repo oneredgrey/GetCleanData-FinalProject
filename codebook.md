@@ -11,11 +11,25 @@ output: html_document
 To access an online dataset from the University of California Irvine Machine Learning website and create an R script that will process the dataset according to the specifications outlined in the Course Project instructions.
 
 ## Source of the Data:
+
+These are original data from:
+
+**Human Activity Recognition Using Smartphones Dataset
+Version 1.0**
+
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws[]
+www.smartlab.ws
+
 The data were downloaded from the following site:  
 [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 
-The source data files are stored in the following branch of the working directory: "UCI HAR Dataset".  
+The source data files are stored in the following branch of the working directory: 
+"UCI HAR Dataset".  
 
 Before running the script, you should ensure the data files on your local machine are either stored in a directory matching this name, or alter the code to point to the location of the files on your computer. 
 
@@ -127,11 +141,23 @@ Search for the variables that measure either mean ("mean") or standard deviation
 
 NOTE:  Only "mean" and "std" variables were selected.  "meanFreq" variables were not considered to fit the desired specifications and were excluded.  
 
+NOTE:  Technically, the variable names could be tidied further, but were not.  
++ Ideally we would like variable names to be as descriptive as possible.  For example, in the variable "tbodyaccjerkmagmean", we could replace "t" with "time", and replace "mag" with "magnitude".  However, doing so would create rather long variable names which could pose a problem for some compilers. Therefore, the variable names remain as listed.
++ Technically, each variable contains more than one piece of data and should, therefore, be split.  For example, "tbodyaccmeanx" should be split into subvariables:
+  ++ var1: value = "time"
+  ++ var2: value = "body""
+  ++ var3: value = "accelerometer"
+  ++ var4: value = "mean"
+  ++ var5: value = "x"
+  However, this led to the possibility of introducing errors and missing data and it was not considered part of the scope of this project to disrupt the integrity of the data as reported by the original researchers.  
+
+
 
 ### Step 5:  Create a separate, independent tidy dataset with the average of each variable for each activity and each subject.  
 
 This is accomplished with the `dplyr` package, using the `group_by` and `summarize` functions.
 
+The resulting table is `'tidydata.txt'`
 
 
 ## Description of the Tidy Dataset 'tidydata.txt'
