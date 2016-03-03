@@ -59,13 +59,25 @@ The following files from the original data set were not used in the data process
 - 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-## Processing the data into the tidy dataset:
+## Processing of cleaning up the data into the final tidy dataset:
+
+The concept of "Tidy Data" as described by Hadley Wickham (http://vita.had.co.nz/papers/tidy-data.pdf) is that:
+* each variable forms a column
+* each observation forms a row
+* each table/file stores data about one kind of observation
+
+Some other features of tidy data include:
+* use descriptive variable names
+* avoid symbols such as "." and "_" in variable names
+* don't duplicate variable names
+
 
 **NOTE:** Before performing the data processing steps in `'run_analysis.R'`, it is assumed that the data have been downloaded from the above link and reside in a subfolder of the working directory called "UCI HAR Dataset".  
 
 To initiate the data processing, run the file `'run_analysis.R'`.  The output of this script is a text file (`'tidydata.txt'`). The script will also open a data frame in R Studio.
 
 The resulting tidy dataset is a 180 x 68 data frame.  The variables represent the average of the mean and standard deviation signals for each subject and each activity.
+
 
 
 ============================
