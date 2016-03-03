@@ -52,9 +52,11 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 * 'train/X_train.txt': 
     + Training data set.
     + 7352 observations, 561 variables
+    
 * 'train/y_train.txt': 
     + Training activity code labels.
     + 7352 observations on one variable
+    
 * 'train/subject_train.txt': 
     + Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
     + 7352 observations on one variable
@@ -62,9 +64,11 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 * 'test/X_test.txt': 
     + Test data set.
     + 2947 observations, 561 variables
+    
 * 'test/y_test.txt': 
     + Test activity code labels.
     + 2947 observations on one variable
+    
 * 'test/subject_test.txt': 
     + Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
     + 2947 observations on one variable    
@@ -157,88 +161,89 @@ fBodyGyroMag, fBodyGyroJerkMag. (Note the **'f'** to indicate frequency domain s
 Features are normalized and bounded within [-1,1]. 
 The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/sec^2^).  The gyroscope units are radians/second.
 
-* 3)  tbodyaccmeanx - (numeric)
-* 4)  tbodyaccmeany - (numeric) 
-* 5)  tbodyaccmeanz - (numeric)
-* 6)  tbodyaccstdx - (numeric)
-* 7)  tbodyaccstdy - (numeric)
-* 8)  tbodyaccstdz - (numeric) 
+*  3)  tbodyaccmeanx  (num)
+*  4)  tbodyaccmeany  (num)
+*  5)  tbodyaccmeanz  (num)
+*  6)  tbodyaccstdx  (num)
+*  7)  tbodyaccstdy  (num)
+*  8)  tbodyaccstdz  (num)
 
-9.  tgravityaccmeanx - (numeric)    
-10. tgravityaccmeany - (numeric)
-11. tgravityaccmeanz - (numeric)
-12. tgravityaccstdx - (numeric)  
-13. tgravityaccstdy - (numeric)  
-14. tgravityaccstdz - (numeric)  
+*  9)  tgravityaccmeanx  (num)
+* 10)  tgravityaccmeany  (num)
+* 11)  tgravityaccmeanz  (num)
+* 12)  tgravityaccstdx  (num)
+* 13)  tgravityaccstdy  (num)
+* 14)  tgravityaccstdz  (num)
 
-15. tbodyaccjerkmeanx - (numeric)      
-16. tbodyaccjerkmeany - (numeric)  
-17. tbodyaccjerkmeanz - (numeric)  
-18. tbodyaccjerkstdx - (numeric)   
-19. tbodyaccjerkstdy - (numeric)  
-20. tbodyaccjerkstdz - (numeric)  
+* 15)  tbodyaccjerkmeanx  (num)
+* 16)  tbodyaccjerkmeany  (num)
+* 17)  tbodyaccjerkmeanz  (num)
+* 18)  tbodyaccjerkstdx  (num)
+* 19)  tbodyaccjerkstdy  (num)
+* 20)  tbodyaccjerkstdz  (num)
 
-21. tbodygyromeanx - (numeric)  
-22. tbodygyromeany - (numeric)  
-23. tbodygyromeanz - (numeric)  
-24. tbodygyrostdx  - (numeric)   
-25. tbodygyrostdy - (numeric)  
-26. tbodygyrostdz - (numeric)  
+* 21)  tbodygyromeanx  (num)
+* 22)  tbodygyromeany  (num)
+* 23)  tbodygyromeanz  (num)
+* 24)  tbodygyrostdx  (num)
+* 25)  tbodygyrostdy  (num)
+* 26)  tbodygyrostdz  (num)
 
-27. tbodygyrojerkmeanx - (numeric)  
-28. tbodygyrojerkmeany - (numeric)  
-29. tbodygyrojerkmeanz - (numeric)  
-30. tbodygyrojerkstdx - (numeric)  
-31. tbodygyrojerkstdy - (numeric)  
-32. tbodygyrojerkstdz - (numeric)  
+* 27)  tbodygyrojerkmeanx  (num)
+* 28)  tbodygyrojerkmeany  (num)
+* 29)  tbodygyrojerkmeanz  (num)
+* 30)  tbodygyrojerkstdx  (num)
+* 31)  tbodygyrojerkstdy  (num)
+* 32)  tbodygyrojerkstdz  (num)
 
-33. tbodyaccmagmean - (numeric)  
-34. tbodyaccmagstd - (numeric)  
+* 33)  tbodyaccmagmean  (num)
+* 34)  tbodyaccmagstd  (num)
 
-35. tgravityaccmagmean - (numeric)  
-36. tgravityaccmagstd - (numeric)  
+* 35)  tgravityaccmagmean  (num)
+* 36)  tgravityaccmagstd  (num)
 
-37. tbodyaccjerkmagmean - (numeric)  
-38. tbodyaccjerkmagstd - (numeric)  
+* 37)  tbodyaccjerkmagmean  (num)
+* 38)  tbodyaccjerkmagstd  (num)
 
-39. tbodygyromagmean - (numeric)  
-40. tbodygyromagstd - (numeric)  
+* 39)  tbodygyromagmean  (num)
+* 40)  tbodygyromagstd  (num)
 
-41. tbodygyrojerkmagmean - (numeric)  
-42. tbodygyrojerkmagstd - (numeric)  
+* 41)  tbodygyrojerkmagmean  (num)
+* 42)  tbodygyrojerkmagstd  (num)
 
-43. fbodyaccmeanx - (numeric)  
-44. fbodyaccmeany - (numeric)  
-45. fbodyaccmeanz - (numeric)            
-46. fbodyaccstdx - (numeric)  
-47. fbodyaccstdy - (numeric)  
-48. fbodyaccstdz - (numeric)            
+* 43)  fbodyaccmeanx  (num)
+* 44)  fbodyaccmeany  (num)
+* 45)  fbodyaccmeanz  (num)
+* 46)  fbodyaccstdx  (num)
+* 47)  fbodyaccstdy  (num)
+* 48)  fbodyaccstdz  (num)
 
-49. fbodyaccjerkmeanx - (numeric)  
-50. fbodyaccjerkmeany - (numeric)  
-51. fbodyaccjerkmeanz - (numeric)  
-52. fbodyaccjerkstdx - (numeric)  
-53. fbodyaccjerkstdy - (numeric)  
-54. fbodyaccjerkstdz - (numeric)  
+* 49)  fbodyaccjerkmeanx  (num)
+* 50)  fbodyaccjerkmeany  (num)
+* 51)  fbodyaccjerkmeanz  (num)
+* 52)  fbodyaccjerkstdx  (num)
+* 53)  fbodyaccjerkstdy  (num)
+* 54)  fbodyaccjerkstdz  (num)
 
-55. fbodygyromeanx - (numeric)  
-56. fbodygyromeany - (numeric)  
-57. fbodygyromeanz - (numeric)    
-58. fbodygyrostdx - (numeric)  
-59. fbodygyrostdy - (numeric)  
-60. fbodygyrostdz - (numeric)            
+* 55)  fbodygyromeanx  (num)
+* 56)  fbodygyromeany  (num)
+* 57)  fbodygyromeanz  (num)
+* 58)  fbodygyrostdx  (num)
+* 59)  fbodygyrostdy  (num)
+* 60)  fbodygyrostdz  (num)
 
-61. fbodyaccmagmean - (numeric)  
-62. fbodyaccmagstd - (numeric)  
+* 61)  fbodyaccmagmean  (num)
+* 62)  fbodyaccmagstd  (num)
 
-63. fbodybodyaccjerkmagmean - (numeric)  
-64. fbodybodyaccjerkmagstd - (numeric)  
+* 63)  fbodybodyaccjerkmagmean  (num)
+* 64)  fbodybodyaccjerkmagstd  (num)
 
-65. fbodybodygyromagmean - (numeric)  
-66. fbodybodygyromagstd - (numeric)    
+* 65)  fbodybodygyromagmean  (num)
+* 66)  fbodybodygyromagstd  (num)
 
-67. fbodybodygyrojerkmagmean - (numeric)  
-68. fbodybodygyrojerkmagstd - (numeric)  
+* 67)  fbodybodygyrojerkmagmean  (num)
+* 68)  fbodybodygyrojerkmagstd  (num)
+
 
 
 ## License:
