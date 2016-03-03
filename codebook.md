@@ -143,12 +143,14 @@ NOTE:  Only "mean" and "std" variables were selected.  "meanFreq" variables were
 
 NOTES on tidying the data:   
 * Ideally we would like variable names to be as descriptive as possible.  For example, in the variable "tbodyaccjerkmagmean", we could replace "t" with "time", and replace "mag" with "magnitude".  However, doing so would create rather long variable names which could pose a problem for some compilers. Therefore, the variable names remain as listed.
+
 *Technically, each variable contains more than one piece of data and should, therefore, be split.  For example, "tbodyaccmeanx" should be split into subvariables, e.g. :
   + var1: value = "time"
   + var2: value = "body""
   + var3: value = "accelerometer"
   + var4: value = "mean"
   + var5: value = "x"
+  
 However, this led to the possibility of introducing errors and missing data and it was not considered part of the scope of this project to disrupt the integrity of the data as reported by the original researchers.  
 
 
