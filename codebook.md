@@ -133,9 +133,9 @@ The resulting tidy dataset is stored in the file "tidydata.txt".  It is a data.f
 
 ## Variables in the Tidy Dataset "tidydata.txt"
 
-1)  subject  - Factor w/ 30 levels ("1", "2", ..., "30").  Identifies the subject performing the task(s)
+* 1)  subject  - Factor w/ 30 levels ("1", "2", ..., "30").  Identifies the subject performing the task(s)
     
-2)  activity -  Factor w/ 6 levels ("laying", "sitting", "standing", "walking",   "walkingdownstairs", "walkingupstairs").  Labels the activities with meaningful text labels
+* 2)  activity -  Factor w/ 6 levels ("laying", "sitting", "standing", "walking",   "walkingdownstairs", "walkingupstairs").  Labels the activities with meaningful text labels
 
         
 **Notes on Variables 3 through 68:**  These variables represent the average of the mean (mean) and standard devation (std) signals for the accelerometer and gyroscope measurements ("features").  
@@ -157,12 +157,12 @@ fBodyGyroMag, fBodyGyroJerkMag. (Note the **'f'** to indicate frequency domain s
 Features are normalized and bounded within [-1,1]. 
 The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/sec^2^).  The gyroscope units are radians/second.
 
-3)  tbodyaccmeanx - (numeric)
-4)  tbodyaccmeany - (numeric) 
-5)  tbodyaccmeanz - (numeric)
-6)  tbodyaccstdx - (numeric)
-7)  tbodyaccstdy - (numeric)
-8)  tbodyaccstdz - (numeric) 
+* 3)  tbodyaccmeanx - (numeric)
+* 4)  tbodyaccmeany - (numeric) 
+* 5)  tbodyaccmeanz - (numeric)
+* 6)  tbodyaccstdx - (numeric)
+* 7)  tbodyaccstdy - (numeric)
+* 8)  tbodyaccstdz - (numeric) 
 
 9.  tgravityaccmeanx - (numeric)    
 10. tgravityaccmeany - (numeric)
