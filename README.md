@@ -24,10 +24,10 @@ activityrecognition@smartlab.ws
 The purpose of the project was to process several data contained in the University of California Irvine (UCI) Human Activity Recognition (HAR) datasets specified above, into one new, tidy dataset which contains only the average of each variable for each activity and each subject.
 
 The relevant files in this repo are as follows:
-1. ReadMe.md - (this file) - basic description of the project parameters.
-2. tidydata.txt - the final tidy dataset
-3. codebook.md - details on the process and the data variables in the tidy dataset
-4. run_analysis.R - the script to process the original data into the final tidy dataset "tidydata.txt"
+ 1. ReadMe.md - (this file) - basic description of the project parameters.
+ 2. tidydata.txt - the final tidy dataset
+ 3. codebook.md - details on the process and the data variables in the tidy dataset
+ 4. run_analysis.R - the script to process the original data into the final tidy dataset "tidydata.txt"
 
 The basic processing steps involved: 
 * Merging the training and the test sets to create one data set.
