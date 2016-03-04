@@ -144,14 +144,14 @@ NOTE:  Only "mean" and "std" variables were selected.  "meanFreq" variables were
 NOTES on tidying the data:   
 * Ideally we would like variable names to be as descriptive as possible.  For example, in the variable "tbodyaccjerkmagmean", we could replace "t" with "time", and replace "mag" with "magnitude".  However, doing so would create rather long variable names which could pose a problem for some compilers. Therefore, the variable names remain as listed.
 
-*Technically, each variable contains more than one piece of data and should, therefore, be split.  For example, "tbodyaccmeanx" should be split into subvariables, e.g. :
-  + var1: value = "time"
-  + var2: value = "body""
-  + var3: value = "accelerometer"
-  + var4: value = "mean"
-  + var5: value = "x"
+* Technically, each variable contains more than one piece of data and should, therefore, be split to be considered "tidy".  For example, "tbodyaccmeanx" should be split into subvariables such as:
+  + var1 (dimension):   value = "time"
+  + var2 (signal type): value = "body""
+  + var3 (instrument):  value = "accelerometer"
+  + var4 (measure):     value = "mean"
+  + var5 (axis):        value = "x"
   
-However, this led to the possibility of introducing errors and missing data and it was not considered part of the scope of this project to disrupt the integrity of the data as reported by the original researchers.  
+However breaking up the data in this manner could disrupt the integrity of the data, leading to errors and missing data.  It was not considered part of the scope of this project to alter the original data.  
 
 
 
@@ -159,7 +159,7 @@ However, this led to the possibility of introducing errors and missing data and 
 
 This is accomplished with the `dplyr` package, using the `group_by` and `summarize` functions.
 
-The resulting table is `'tidydata.txt'`
+The resulting table is a text file named `'tidydata.txt'` which is written to the same folder as the original data (i.e., "UCI HAR Dataset")
 
 
 ## Description of the Tidy Dataset 'tidydata.txt'
@@ -173,9 +173,9 @@ Here is a description of the variables:
 * 2)  activity -  Factor w/ 6 levels ("laying", "sitting", "standing", "walking",   "walkingdownstairs", "walkingupstairs").  Labels the activities with meaningful text labels
 
         
-**Notes on Variables 3 through 68:**  These variables represent the average of the mean (mean) and standard devation (std) signals for the accelerometer and gyroscope measurements ("features").  
+**Notes on Variables 3 through 68:**  These variables represent the average of the mean (mean) and standard devation (std) signals from the accelerometer and gyroscope measurements ("features").  
 
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix **'t'** to denote time; variables 2 through 42) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
+The original features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix **'t'** to denote time; variables 2 through 42) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
 
 Similarly, the acceleration signal was then separated into body and gravity 
 acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass 
@@ -191,6 +191,8 @@ fBodyGyroMag, fBodyGyroJerkMag. (Note the **'f'** to indicate frequency domain s
 
 Features are normalized and bounded within [-1,1]. 
 The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/sec^2^).  The gyroscope units are radians/second.
+
+As stated above, each of these variables 3-68 represent the average values for either the mean (mean) or standard deviation (std) measures for each subject and each activity.
 
 *  3)  tbodyaccmeanx  (num)
 *  4)  tbodyaccmeany  (num)
@@ -274,6 +276,8 @@ The units used for the accelerations (total and body) are 'g's (gravity of earth
 
 * 67)  fbodybodygyrojerkmagmean  (num)
 * 68)  fbodybodygyrojerkmagstd  (num)
+
+
 
 
 

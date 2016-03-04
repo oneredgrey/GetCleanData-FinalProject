@@ -107,7 +107,7 @@ newdata$subject <- as.factor(newdata$subject)
 
 ## Use dplyr (group_by) and (summarize_each) to list means by activity and subject.
 tidydata <- newdata %>% 
-  group_by (activity, subject) %>%    ## group by activity and subjectid
+  group_by (activity, subject) %>%    ## group by activity and subject
   summarize_each(funs(mean))          ## find the mean of each of the variables.
 View(tidydata)                        ## Open the data in an easy-to-read table window.
 
