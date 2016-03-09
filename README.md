@@ -59,7 +59,7 @@ The following files from the original data set were not used in the data process
 - 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-## Processing of cleaning up the data into the final tidy dataset:
+## Process of cleaning up the data into the final tidy dataset:
 
 The concept of "Tidy Data" as described by Hadley Wickham (http://vita.had.co.nz/papers/tidy-data.pdf) is that:
 * each variable forms a column
